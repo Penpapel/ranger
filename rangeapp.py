@@ -1,8 +1,11 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 
+# Add an image at the top of the app, resize it to fit the width of the app
+st.image("chun.png", use_column_width=True)  # Replace "logo.png" with your actual image filename
+
 # Set up the title of the app
-st.title("Architecture Price Calculator with Custom Base Sqft and Pie Chart")
+st.title("OASYS ROM Calculator - Venue")
 
 # Entry boxes to input base square footage for each category with default values
 base1 = st.number_input("Enter Base Sqft for Venue Build", min_value=0, value=20000)
@@ -60,8 +63,7 @@ if total > 0:
         autopct='%1.1f%%', 
         startangle=90, 
         pctdistance=0.5,  # Bring percentages closer to the center
-        labeldistance=1.1,  # Move the label descriptions further out
-        textprops={'color': 'lightgrey'}  # Set label text to light grey
+        labeldistance=1.1  # Move the label descriptions further out
     )
     ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     
