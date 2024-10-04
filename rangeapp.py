@@ -39,14 +39,18 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Add extra space between Total Price and Pie Chart
+st.write("")
+st.write("")  # Adds two empty lines of space
+
 # Pie chart to show the percentage contribution of each category to the total with sky blue to dark blue color scheme
 if total > 0:
     labels = ['Venue Build', 'Performance Space Architecture', 'Gallery Architecture']
     sizes = [subtotal1, subtotal2, subtotal3]
     colors = ['#87CEEB', '#4682B4', '#0B3D91']  # Sky blue to dark blue
 
-    # Create a figure with a transparent background
-    fig, ax = plt.subplots()
+    # Create a larger figure for mobile
+    fig, ax = plt.subplots(figsize=(6, 6))  # Adjust the size as needed for mobile screens
     fig.patch.set_alpha(0)  # Set figure background to transparent
     ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
     ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
