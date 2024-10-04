@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 # Add an image at the top of the app, resize it to fit the width of the app
-st.image("logo.png", use_column_width=True)  # Replace with the path to your image file
+st.image("Chun.png", use_column_width=True)  # Replace with the path to your image file
 
 # Set up the title of the app (no GitHub link in title)
 st.title("Architecture Price Calculator with Custom Base Sqft and Pie Chart")
