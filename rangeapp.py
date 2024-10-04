@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 # Set up the title of the app
-st.title("Performance venue ROM Cost Calculator")
+st.title("Venue ROM Calculator")
 
 # Entry boxes to input base square footage for each category with default values
 base1 = st.number_input("Enter Base Sqft for Venue Build", min_value=0, value=20000)
@@ -21,19 +21,19 @@ subtotal1 = slider1_value * base1
 subtotal2 = slider2_value * base2
 subtotal3 = slider3_value * base3
 
-# Display the subtotals
-st.write(f"Subtotal for Venue Build: ${subtotal1}")
-st.write(f"Subtotal for Performance Space Architecture: ${subtotal2}")
-st.write(f"Subtotal for Gallery Architecture: ${subtotal3}")
+# Display the subtotals with commas for better readability
+st.write(f"Subtotal for Venue Build: ${subtotal1:,.0f}")
+st.write(f"Subtotal for Performance Space Architecture: ${subtotal2:,.0f}")
+st.write(f"Subtotal for Gallery Architecture: ${subtotal3:,.0f}")
 
 # Calculate the total price
 total = subtotal1 + subtotal2 + subtotal3
 
-# Display the total price in a prominent colored box with rounded edges
+# Display the total price in a box with the same gray color as input fields
 st.markdown(
     f"""
-    <div style="background-color:#f0f4c3;padding:20px;border-radius:10px;">
-        <h2 style="color:#3f51b5;text-align:center;">Total Price: ${total}</h2>
+    <div style="background-color:#f1f1f1;padding:10px;border-radius:10px;width:50%;margin:auto;">
+        <h3 style="color:#3f51b5;text-align:center;">Total Price: ${total:,.0f}</h3>
     </div>
     """,
     unsafe_allow_html=True
