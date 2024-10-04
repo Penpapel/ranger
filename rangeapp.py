@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 # Set up the title of the app
-st.title("Architecture Price Calculator with Custom Base Sqft and Pie Chart")
+st.title("Performance venue ROM Cost Calculator")
 
 # Entry boxes to input base square footage for each category with default values
 base1 = st.number_input("Enter Base Sqft for Venue Build", min_value=0, value=20000)
@@ -26,13 +26,18 @@ st.write(f"Subtotal for Venue Build: ${subtotal1}")
 st.write(f"Subtotal for Performance Space Architecture: ${subtotal2}")
 st.write(f"Subtotal for Gallery Architecture: ${subtotal3}")
 
-# Calculate and display the total price
+# Calculate the total price
 total = subtotal1 + subtotal2 + subtotal3
-st.write(f"**Total Price: ${total}**")
 
-# Calculate and display the average price
-average_price = total / 3
-st.write(f"**Average Price: ${average_price:.2f}**")
+# Display the total price in a prominent colored box with rounded edges
+st.markdown(
+    f"""
+    <div style="background-color:#f0f4c3;padding:20px;border-radius:10px;">
+        <h2 style="color:#3f51b5;text-align:center;">Total Price: ${total}</h2>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # Pie chart to show the percentage contribution of each category to the total
 if total > 0:
