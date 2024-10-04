@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 # Set up the title of the app
-st.title("Venue ROM Calculator")
+st.title("Architecture Price Calculator with Custom Base Sqft and Pie Chart")
 
 # Entry boxes to input base square footage for each category with default values
 base1 = st.number_input("Enter Base Sqft for Venue Build", min_value=0, value=20000)
@@ -29,23 +29,24 @@ st.write(f"Subtotal for Gallery Architecture: ${subtotal3:,.0f}")
 # Calculate the total price
 total = subtotal1 + subtotal2 + subtotal3
 
-# Display the total price in a box with the same gray color as input fields
+# Display the total price in a box with the same gray color as input fields and black font
 st.markdown(
     f"""
-    <div style="background-color:#f1f1f1;padding:10px;border-radius:10px;width:50%;margin:auto;">
-        <h3 style="color:#3f51b5;text-align:center;">Total Price: ${total:,.0f}</h3>
+    <div style="background-color:#f1f1f1;padding:10px;border-radius:10px;width:100%;margin:auto;">
+        <h3 style="color:black;text-align:center;">Total Price: ${total:,.0f}</h3>
     </div>
     """,
     unsafe_allow_html=True
 )
 
-# Pie chart to show the percentage contribution of each category to the total
+# Pie chart to show the percentage contribution of each category to the total with sky blue to dark blue color scheme
 if total > 0:
     labels = ['Venue Build', 'Performance Space Architecture', 'Gallery Architecture']
     sizes = [subtotal1, subtotal2, subtotal3]
-    
+    colors = ['#87CEEB', '#4682B4', '#0B3D91']  # Sky blue to dark blue
+
     fig, ax = plt.subplots()
-    ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+    ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
     ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     
     st.write("### Contribution of Each Category to the Total Price")
