@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 # Add an image at the top of the app, resize it to fit the width of the app
-st.image("chun.png", use_column_width=True)  # Replace "logo.png" with your actual image filename
+st.image("Chun.png", use_column_width=True)  # Replace "logo.png" with your actual image filename
 
 # Set up the title of the app
 st.title("OASYS ROM Calculator - Venue")
