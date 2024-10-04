@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 # Set up the title of the app
-st.title("OASYS - Venue Build ROM Calculator")
+st.title("Architecture Price Calculator with Custom Base Sqft and Pie Chart")
 
 # Entry boxes to input base square footage for each category with default values
 base1 = st.number_input("Enter Base Sqft for Venue Build", min_value=0, value=20000)
@@ -50,10 +50,18 @@ if total > 0:
     # Grayscale color scheme
     colors = ['#d9d9d9', '#a6a6a6', '#595959']
 
-    # Create a larger figure for mobile and inscribe labels within the pie chart
+    # Create a larger figure for mobile, separate percentages and labels for clarity
     fig, ax = plt.subplots(figsize=(6, 6))  # Adjust the size as needed for mobile screens
     fig.patch.set_alpha(0)  # Set figure background to transparent
-    ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90, labeldistance=0.6)
+    ax.pie(
+        sizes, 
+        labels=labels, 
+        colors=colors, 
+        autopct='%1.1f%%', 
+        startangle=90, 
+        pctdistance=0.5,  # Bring percentages closer to the center
+        labeldistance=1.1  # Move the label descriptions further out
+    )
     ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     
     st.write("### Contribution of Each Category to the Total Price")
