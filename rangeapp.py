@@ -2,10 +2,10 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 # Add an image at the top of the app, resize it to fit the width of the app
-st.image("Chun.png", use_column_width=True)  # Replace "logo.png" with your actual image filename
+st.image("logo.png", use_column_width=True)  # Replace with the path to your image file
 
-# Set up the title of the app
-st.title("OASYS ROM Calculator - Venue")
+# Set up the title of the app (no GitHub link in title)
+st.title("Architecture Price Calculator with Custom Base Sqft and Pie Chart")
 
 # Entry boxes to input base square footage for each category with default values
 base1 = st.number_input("Enter Base Sqft for Venue Build", min_value=0, value=20000)
