@@ -60,7 +60,8 @@ if total > 0:
         autopct='%1.1f%%', 
         startangle=90, 
         pctdistance=0.5,  # Bring percentages closer to the center
-        labeldistance=1.1  # Move the label descriptions further out
+        labeldistance=1.1,  # Move the label descriptions further out
+        textprops={'color': 'lightgrey'}  # Set label text to light grey
     )
     ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     
